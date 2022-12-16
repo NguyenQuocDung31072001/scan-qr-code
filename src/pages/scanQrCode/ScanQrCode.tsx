@@ -1,23 +1,30 @@
-import React from "react";
+import { Html5QrcodeScanner } from "html5-qrcode";
 import {
-  useHtml5QrCodeScanner,
-  useAvailableDevices,
-} from "react-html5-qrcode-reader";
+  Html5QrcodeScanType,
+  Html5QrcodeSupportedFormats,
+} from "html5-qrcode/esm/core";
+import React from "react";
 
 const idScanContainer = "reader";
+const formatsToSupport = [
+  Html5QrcodeSupportedFormats.QR_CODE,
+  Html5QrcodeSupportedFormats.UPC_A,
+  Html5QrcodeSupportedFormats.UPC_E,
+  Html5QrcodeSupportedFormats.UPC_EAN_EXTENSION,
+];
 const config = {
   fps: 10,
   qrbox: { width: 250, height: 250 },
-  facingMode: "environment",
+  supportedScanTypes: [
+    Html5QrcodeScanType.SCAN_TYPE_CAMERA,
+    // Html5QrcodeScanType.SCAN_TYPE_FILE,
+  ],
+  rememberLastUsedCamera: true,
+  showTorchButtonIfSupported: true,
+  formatsToSupport: formatsToSupport,
 };
-
-const html5QrCodeScannerFile = "https://unpkg.com/html5-qrcode";
-
 export default function ScanQrCode() {
-  const { Html5QrcodeScanner } = useHtml5QrCodeScanner(html5QrCodeScannerFile);
-  const { devices, error } = useAvailableDevices(html5QrCodeScannerFile);
   const [data, setData] = React.useState();
-  console.log({ devices, error });
   //useEffect
 
   //function
@@ -30,6 +37,7 @@ export default function ScanQrCode() {
         (data: any) => {
           console.log("success ->", data);
           setData(data);
+          html5QrcodeScanner.clear();
         },
         (err: any) => console.log("err ->", err)
       );
@@ -37,8 +45,10 @@ export default function ScanQrCode() {
   }, [Html5QrcodeScanner]);
 
   return (
-    <div className="w-[400px] h-[700px] shadow-lg shadow-gray-400">
-      {!data && <div id={idScanContainer} className="w-full h-full"></div>}
+    <div className="w-[400px] h-[700px] flex items-center  shadow-lg shadow-gray-400">
+      {!data && (
+        <div id={idScanContainer} className="w-[400px] h-[400px] m-auto"></div>
+      )}
       {data && <div>{data}</div>}
     </div>
   );
