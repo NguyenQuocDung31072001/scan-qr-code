@@ -47,7 +47,7 @@ export default function ScanQrCode() {
   }, [Html5QrcodeScanner]);
 
   return (
-    <div className="w-[300px] h-[350px] md:w-[400px] md:h-[550px] sm:w-[300px] sm:h-[350px] flex items-center">
+    <div className="w-[300px] max-w-[300px] h-[350px] md:w-[400px] md:max-w-[400px] md:h-[550px] flex items-center">
       <div
         id={idScanContainer}
         className="w-[400px] h-[400px] m-auto shadow-lg shadow-gray-400"

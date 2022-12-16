@@ -6,9 +6,9 @@ export default function ScanQrCodeResult() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-[300px] h-[350px] md:w-[400px] md:h-[550px] sm:w-[300px] sm:h-[350px] flex items-center relative">
-      <div className="w-[400px] h-[400px] m-auto shadow-lg shadow-gray-400 flex items-center justify-center">
-        result is ......{location?.state?.data}
+    <div className="w-[300px] max-w-[300px] h-[350px] md:w-[400px] md:max-w-[400px] md:h-[550px] flex items-center relative">
+      <div className="w-full h-full p-4 shadow-lg shadow-gray-400 flex items-center justify-center">
+        {location?.state?.data}
       </div>
       <div className="absolute bottom-0 w-full flex justify-center">
         <div
