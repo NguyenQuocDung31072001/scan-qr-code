@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+#html5-qrcode-anchor-scan-type-change{
+  display: none !important;
+}
+
+#reader img{
+  display: none !important;
+}
