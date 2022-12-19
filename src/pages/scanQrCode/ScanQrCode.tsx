@@ -69,9 +69,9 @@ export default function ScanQrCode() {
   }, [data]);
   //bg-[('/amanotes_bg.jpg')]
   return (
-    <div className="w-[300px] h-[350px] flex items-center justify-center shadow-lg shadow-gray-400 relative">
+    <div className="w-[20rem] h-[21rem] flex items-center justify-center shadow-lg shadow-gray-400 relative">
       <img src="/amanotes_bg.jpg" alt="" className="absolute" />
-      <div id={idScanContainer} className="w-[200px] h-[130px]"></div>
+      <div id={idScanContainer} className="w-[15rem] h-[10rem]"></div>
       <ScanQrCodeResult isShowing={isShowing} toggle={toggle} data={data} />
     </div>
   );
