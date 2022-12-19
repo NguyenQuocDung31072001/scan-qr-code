@@ -10,12 +10,7 @@ import useModal from "../../hook/useModal";
 import ScanQrCodeResult from "../scanQrCodeResult/ScanQrCodeResult";
 
 const idScanContainer = "reader";
-const formatsToSupport = [
-  Html5QrcodeSupportedFormats.QR_CODE,
-  Html5QrcodeSupportedFormats.UPC_A,
-  Html5QrcodeSupportedFormats.UPC_E,
-  Html5QrcodeSupportedFormats.UPC_EAN_EXTENSION,
-];
+const formatsToSupport = [Html5QrcodeSupportedFormats.QR_CODE];
 const config = {
   fps: 10,
   qrbox: { width: 250, height: 250 },
@@ -31,11 +26,9 @@ const config = {
 
 export default function ScanQrCode() {
   const navigate = useNavigate();
-  console.log("render");
   const [data, setData] = React.useState<any>();
   const [email, setEmail] = useLocalStorage("email", "");
   const [password, setPassword] = useLocalStorage("password", "");
-  console.log({ email });
   React.useEffect(() => {
     if (!email || !password) {
       setEmail("");
@@ -51,7 +44,7 @@ export default function ScanQrCode() {
   React.useEffect(() => {
     if (isShowing) return;
     if (Html5QrcodeScanner) {
-      let html5QrcodeScanner = new Html5QrcodeScanner("reader", config, false);
+      let html5QrcodeScanner = new Html5QrcodeScanner("reader", config, true);
       html5QrcodeScanner.render(
         (data: any) => {
           console.log("success ->", data);
