@@ -19,8 +19,8 @@ const config = {
     Html5QrcodeScanType.SCAN_TYPE_FILE,
   ],
   rememberLastUsedCamera: true,
-  showTorchButtonIfSupported: true,
-  showZoomSliderIfSupported: true,
+  // showTorchButtonIfSupported: true,
+  // showZoomSliderIfSupported: true,
   formatsToSupport: formatsToSupport,
 };
 
@@ -69,10 +69,10 @@ export default function ScanQrCode() {
   }, [data]);
 
   return (
-    <div className="max-w-[600px] min-w-[300px] h-[350px] flex items-center">
+    <div className="w-[300px] h-[350px] flex items-center">
       <div
         id={idScanContainer}
-        className=" max-w-[400px] min-w-[300px] h-[400px] m-auto shadow-lg shadow-gray-400"
+        className="w-[200px] h-[200px] m-auto shadow-lg shadow-gray-400"
       ></div>
       <ScanQrCodeResult isShowing={isShowing} toggle={toggle} data={data} />
     </div>

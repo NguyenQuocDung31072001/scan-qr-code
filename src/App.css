@@ -40,6 +40,9 @@
   display: none !important;
 }
 
-#reader img{
+#reader img,
+#reader span,
+#reader select{
   display: none !important;
 }
+
