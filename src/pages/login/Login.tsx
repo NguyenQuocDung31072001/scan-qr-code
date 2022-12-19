@@ -41,7 +41,7 @@ export default function Login() {
         <input
           {...register("Email")}
           placeholder="Email"
-          className="border-2 border-gray-500 px-4 py-2 rounded-[5px]"
+          className="border-2 border-gray-500 px-2 py-2 rounded-[5px]"
         />
         {errors?.Email && (
           <p className="text-red-500">{errors.Email.message}</p>
@@ -53,7 +53,7 @@ export default function Login() {
           {...register("Password")}
           type="password"
           placeholder="Password"
-          className="border-2 border-gray-500 px-4 py-2 rounded-[5px]"
+          className="border-2 border-gray-500 px-2 py-2 rounded-[5px]"
         />
         {errors?.Password && (
           <p className=" text-red-500">{errors.Password.message}</p>
