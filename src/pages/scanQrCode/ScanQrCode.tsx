@@ -4,6 +4,8 @@ import {
   Html5QrcodeSupportedFormats,
 } from "html5-qrcode/esm/core";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import useLocalStorage from "../../hook/useLocalStorage";
 import useModal from "../../hook/useModal";
 import ScanQrCodeResult from "../scanQrCodeResult/ScanQrCodeResult";
 
@@ -27,7 +29,20 @@ const config = {
 };
 
 export default function ScanQrCode() {
+  const navigate = useNavigate();
+  console.log("render");
   const [data, setData] = React.useState<any>();
+  const [email, setEmail] = useLocalStorage("email", "");
+  const [password, setPassword] = useLocalStorage("password", "");
+  console.log({ email });
+  React.useEffect(() => {
+    if (!email || !password) {
+      setEmail("");
+      setPassword("");
+      navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   //hook
   const { isShowing, toggle } = useModal();
