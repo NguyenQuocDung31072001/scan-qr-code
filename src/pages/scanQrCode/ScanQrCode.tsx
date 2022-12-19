@@ -13,7 +13,7 @@ const idScanContainer = "reader";
 const formatsToSupport = [Html5QrcodeSupportedFormats.QR_CODE];
 const config = {
   fps: 10,
-  qrbox: { width: 250, height: 250 },
+  qrbox: { width: 180, height: 120 },
   supportedScanTypes: [
     Html5QrcodeScanType.SCAN_TYPE_CAMERA,
     Html5QrcodeScanType.SCAN_TYPE_FILE,
