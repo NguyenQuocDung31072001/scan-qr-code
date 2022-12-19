@@ -34,7 +34,7 @@ export default function Login() {
     }
   });
   return (
-    <div className="flex flex-col items-center justify-center w-[300px] h-[400px] rounded-[10px] shadow-md shadow-gray-400">
+    <div className="flex flex-col items-center justify-center w-[300px] min-w-[300px] h-[400px] rounded-[10px] shadow-md shadow-gray-400">
       <div className="text-[18px] font-semibold">Amanotes Login</div>
       <div className="mb-4 max-w-[200px]">
         <p className="text-gray-600">Email</p>
