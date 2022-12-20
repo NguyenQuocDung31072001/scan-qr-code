@@ -19,8 +19,6 @@ const config = {
     Html5QrcodeScanType.SCAN_TYPE_FILE,
   ],
   rememberLastUsedCamera: true,
-  // showTorchButtonIfSupported: true,
-  // showZoomSliderIfSupported: true,
   formatsToSupport: formatsToSupport,
 };
 
