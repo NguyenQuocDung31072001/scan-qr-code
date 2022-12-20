@@ -38,12 +38,12 @@ export default function Login() {
       <div className="text-[1.5rem] font-semibold text-transparent bg-clip-text bg-gradient-to-br from-indigo-800 via-purple-600 to-pink-800">
         Amanotes Login
       </div>
-      <div className="mb-4 w-[15rem]">
+      <div className="mb-4 w-[15rem] ">
         <p className="text-gray-600">Email</p>
         <input
           {...register("Email")}
           placeholder="Email"
-          className="border-2 border-gray-500 px-2 py-2 rounded-[5px]"
+          className="border-2 border-gray-500 w-[15rem] px-2 py-2 rounded-[5px]"
         />
         {errors?.Email && (
           <p className="text-red-500">{errors.Email.message}</p>
@@ -55,7 +55,7 @@ export default function Login() {
           {...register("Password")}
           type="password"
           placeholder="Password"
-          className="border-2 border-gray-500 px-2 py-2 rounded-[5px]"
+          className="border-2 border-gray-500 w-[15rem] px-2 py-2 rounded-[5px]"
         />
         {errors?.Password && (
           <p className=" text-red-500">{errors.Password.message}</p>
