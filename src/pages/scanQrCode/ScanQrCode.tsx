@@ -1,4 +1,4 @@
-import { Html5QrcodeScanner } from "html5-qrcode";
+import { Html5QrcodeScanner, Html5Qrcode } from "html5-qrcode";
 import {
   Html5QrcodeScanType,
   Html5QrcodeSupportedFormats,
@@ -18,7 +18,7 @@ const config = {
     Html5QrcodeScanType.SCAN_TYPE_CAMERA,
     Html5QrcodeScanType.SCAN_TYPE_FILE,
   ],
-  rememberLastUsedCamera: true,
+  // rememberLastUsedCamera: true,
   formatsToSupport: formatsToSupport,
 };
 
@@ -41,19 +41,31 @@ export default function ScanQrCode() {
   //useEffect
   React.useEffect(() => {
     if (isShowing) return;
-    if (Html5QrcodeScanner) {
-      let html5QrcodeScanner = new Html5QrcodeScanner("reader", config, true);
-      html5QrcodeScanner.render(
-        (data: any) => {
-          console.log("success ->", data);
-          setData(data);
-          html5QrcodeScanner.clear();
+    if (Html5Qrcode) {
+      const html5QrCode = new Html5Qrcode("reader");
+      html5QrCode.start(
+        { facingMode: "environment" },
+        config,
+        (success) => {
+          console.log({ success });
+          html5QrCode.stop();
         },
-        (err: any) => console.log("err ->", err)
+        (error) => {
+          console.log({ error });
+        }
       );
+      // let html5QrcodeScanner = new Html5QrcodeScanner("reader", config, true);
+      // html5QrcodeScanner.render(
+      //   (data: any) => {
+      //     console.log("success ->", data);
+      //     setData(data);
+      //     html5QrcodeScanner.clear();
+      //   },
+      //   (err: any) => console.log("err ->", err)
+      // );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [Html5QrcodeScanner, isShowing]);
+  }, [Html5Qrcode, isShowing]);
 
   React.useEffect(() => {
     if (isShowing) return;
@@ -65,14 +77,8 @@ export default function ScanQrCode() {
     toggle();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
-  //bg-[('/amanotes_bg.jpg')]
   return (
     <div className="w-[20rem] h-[15rem]">
-      {/* <img
-        src="https://s3.cloud.cmctelecom.vn/tinhte2/2020/12/5271132_cover_amanotes.jpg"
-        alt=""
-        className="absolute w-[20rem] h-[21rem]"
-      /> */}
       <div id={idScanContainer} className="w-[20rem] h-[15rem]"></div>
       <ScanQrCodeResult isShowing={isShowing} toggle={toggle} data={data} />
     </div>
