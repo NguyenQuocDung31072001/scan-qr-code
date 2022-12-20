@@ -67,9 +67,13 @@ export default function ScanQrCode() {
   }, [data]);
   //bg-[('/amanotes_bg.jpg')]
   return (
-    <div className="w-[20rem] h-[21rem] flex items-center justify-center shadow-lg shadow-gray-400 relative">
-      <img src="/amanotes_bg.jpg" alt="" className="absolute" />
-      <div id={idScanContainer} className="w-[15rem] h-[10rem]"></div>
+    <div className="w-[16rem] h-[12rem]">
+      {/* <img
+        src="https://s3.cloud.cmctelecom.vn/tinhte2/2020/12/5271132_cover_amanotes.jpg"
+        alt=""
+        className="absolute w-[20rem] h-[21rem]"
+      /> */}
+      <div id={idScanContainer} className="w-[16rem] h-[12rem]"></div>
       <ScanQrCodeResult isShowing={isShowing} toggle={toggle} data={data} />
     </div>
   );

@@ -45,15 +45,11 @@
 #reader select{
   display: none !important;
 }
- 
 #reader video{
-  width: 250px;
-  height: 250px;
-}
-#qr-shaded-region{
-  border-width: 40px 40px;
+  width: 16rem;
+  height: 12rem;
 }
 
-#reader__scan_region{
-  top: -45px
+#qr-shaded-region{
+  border-width: 40px 40px !important;
 }

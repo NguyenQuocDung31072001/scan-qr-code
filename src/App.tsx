@@ -6,7 +6,7 @@ import "./App.css";
 import Login from "./pages/login/Login";
 function App() {
   return (
-    <div className="flex items-center justify-center h-[100vh]">
+    <div className="flex items-center justify-center h-[100vh] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />

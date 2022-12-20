@@ -34,9 +34,11 @@ export default function Login() {
     }
   });
   return (
-    <div className="flex flex-col items-center justify-center w-[24rem] h-[24rem] rounded-[10px] shadow-md shadow-gray-400">
-      <div className="text-[1.5rem] font-semibold">Amanotes Login</div>
-      <div className="mb-4 max-w-[15rem]">
+    <div className="flex flex-col items-center justify-center w-[24rem] h-[24rem] rounded-[10px] bg-gradient-to-r p-[6px] from-[#6EE7B7] via-[#3B82F6] to-[#9333EA] shadow-md shadow-gray-400">
+      <div className="text-[1.5rem] font-semibold text-transparent bg-clip-text bg-gradient-to-br from-indigo-800 via-purple-600 to-pink-800">
+        Amanotes Login
+      </div>
+      <div className="mb-4 w-[15rem]">
         <p className="text-gray-600">Email</p>
         <input
           {...register("Email")}
@@ -47,7 +49,7 @@ export default function Login() {
           <p className="text-red-500">{errors.Email.message}</p>
         )}
       </div>
-      <div className="mb-4 max-w-[15rem]">
+      <div className="mb-4 w-[15rem]">
         <p className="text-gray-600">Password</p>
         <input
           {...register("Password")}
@@ -62,7 +64,8 @@ export default function Login() {
       <div className="max-w-[15rem] w-full flex justify-center">
         <button
           onClick={onSubmit}
-          className="bg-rose-500 text-white rounded-[10px] w-[14rem] px-4 py-2 "
+          className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  text-white rounded-[10px] w-[10rem] px-4 py-2"
+          //hover:bg-gradient-to-r hover:from-indigo-800 hover:via-purple-800 hover:to-pink-800
         >
           login
         </button>
