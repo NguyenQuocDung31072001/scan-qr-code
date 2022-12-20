@@ -1,1 +1,1 @@
-https://scan-qr-code-three.vercel.app/
+https://scan-qr-code-7kkmeexp2-bifann317.vercel.app/
