@@ -46,8 +46,8 @@
   display: none !important;
 }
 #reader video{
-  width: 20rem;
-  height: 15rem;
+  width: 20rem !important;
+  height: 20rem !important;
 }
 
 #qr-shaded-region{

@@ -1,4 +1,4 @@
-import { Html5Qrcode } from "html5-qrcode";
+import { Html5Qrcode, Html5QrcodeScanner } from "html5-qrcode";
 import {
   Html5QrcodeScanType,
   // Html5QrcodeSupportedFormats,
@@ -40,19 +40,16 @@ export default function ScanQrCode() {
   //useEffect
   React.useEffect(() => {
     if (isShowing) return;
-    if (Html5Qrcode) {
-      const html5QrCode = new Html5Qrcode("reader");
-      html5QrCode.start(
-        { facingMode: "environment" },
-        config,
-        (success) => {
-          console.log({ success });
-          setData(success);
-          html5QrCode.stop();
+    if (Html5QrcodeScanner) {
+      let html5QrcodeScanner = new Html5QrcodeScanner("reader", config, true);
+      html5QrcodeScanner.applyVideoConstraints({ facingMode: "environment" });
+      html5QrcodeScanner.render(
+        (data: any) => {
+          console.log("success ->", data);
+          setData(data);
+          html5QrcodeScanner.clear();
         },
-        (error) => {
-          console.log({ error });
-        }
+        (err: any) => console.log("err ->", err)
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,8 +66,8 @@ export default function ScanQrCode() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   return (
-    <div className="w-[20rem] h-[15rem]">
-      <div id={idScanContainer} className="w-[20rem] h-[15rem]"></div>
+    <div className="w-[20rem] h-[20rem]">
+      <div id={idScanContainer} className="w-[20rem] h-[20rem]"></div>
       <ScanQrCodeResult isShowing={isShowing} toggle={toggle} data={data} />
     </div>
   );
