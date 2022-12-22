@@ -1,7 +1,7 @@
 import { Html5Qrcode, Html5QrcodeScanner } from "html5-qrcode";
 import {
   Html5QrcodeScanType,
-  // Html5QrcodeSupportedFormats,
+  Html5QrcodeSupportedFormats,
 } from "html5-qrcode/esm/core";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -10,15 +10,18 @@ import useModal from "../../hook/useModal";
 import ScanQrCodeResult from "../scanQrCodeResult/ScanQrCodeResult";
 
 const idScanContainer = "reader";
-// const formatsToSupport = [Html5QrcodeSupportedFormats.QR_CODE];
+const formatsToSupport = [Html5QrcodeSupportedFormats.QR_CODE];
 const config = {
   fps: 10,
   qrbox: { width: 180, height: 120 },
-  // supportedScanTypes: [
-  //   Html5QrcodeScanType.SCAN_TYPE_CAMERA,
-  //   Html5QrcodeScanType.SCAN_TYPE_FILE,
-  // ],
-  // formatsToSupport: formatsToSupport,
+  supportedScanTypes: [
+    Html5QrcodeScanType.SCAN_TYPE_CAMERA,
+    Html5QrcodeScanType.SCAN_TYPE_FILE,
+  ],
+  formatsToSupport: formatsToSupport,
+  videoConstraints: {
+    facingMode: "environment",
+  },
 };
 
 export default function ScanQrCode() {
@@ -41,8 +44,7 @@ export default function ScanQrCode() {
   React.useEffect(() => {
     if (isShowing) return;
     if (Html5QrcodeScanner) {
-      let html5QrcodeScanner = new Html5QrcodeScanner("reader", config, true);
-      html5QrcodeScanner.applyVideoConstraints({ facingMode: "environment" });
+      let html5QrcodeScanner = new Html5QrcodeScanner("reader", config, false);
       html5QrcodeScanner.render(
         (data: any) => {
           console.log("success ->", data);
