@@ -21,9 +21,9 @@ const config = {
   formatsToSupport: formatsToSupport,
   videoConstraints: {
     facingMode: "environment",
-    focusMode: "continuous",
+    // focusMode: "continuous",
   },
-  focusMode: "continuous",
+  // focusMode: "continuous",
 };
 
 export default function ScanQrCode() {
