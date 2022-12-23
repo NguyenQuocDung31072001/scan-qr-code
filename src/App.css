@@ -39,14 +39,8 @@
  #html5-qrcode-anchor-scan-type-change{
   display: none !important;
 }
-/*
- #reader img,
-#reader span,
-#reader select{
-  display: none !important;
-} */
-#reader img,
-#reader select{
+
+#reader img{
   display: none !important;
 }
 #reader__dashboard_section_csr span:first-child(){
@@ -58,7 +52,7 @@
 }
 
 #html5-qrcode-button-camera-stop{
-  background-color: rgb(229, 162, 162);
+  background-color: rgb(97, 5, 5);
 }
 #qr-shaded-region{
   border-width: 40px 40px !important;
