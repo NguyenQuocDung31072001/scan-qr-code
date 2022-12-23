@@ -50,7 +50,7 @@ export default function ScanQrCode() {
           videoConstraints: {
             facingMode: "environment",
           },
-          aspectRatio: width < 600 ? mobileAspectRatio : aspectRatio,
+          // aspectRatio: width < 600 ? mobileAspectRatio : aspectRatio,
         },
         false
       );
