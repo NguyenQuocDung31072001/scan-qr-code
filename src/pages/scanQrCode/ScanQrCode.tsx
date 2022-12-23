@@ -46,10 +46,12 @@ export default function ScanQrCode() {
         false
       );
       html5QrcodeScanner.render(
-        (data: any) => {
+        (_data: any) => {
           console.log("success ->", data);
-          setData(data);
           html5QrcodeScanner.clear();
+          checkinUser(_data).then((result) => {
+            setData(result?.data);
+          });
         },
         (err: any) => console.log("err ->", err)
       );
@@ -65,7 +67,6 @@ export default function ScanQrCode() {
   React.useEffect(() => {
     if (!data) return;
     toggle();
-    checkinUser(data);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   return (
