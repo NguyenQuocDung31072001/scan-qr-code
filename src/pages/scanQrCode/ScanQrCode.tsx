@@ -8,15 +8,15 @@ import useModal from "../../hook/useModal";
 import ScanQrCodeResult from "../scanQrCodeResult/ScanQrCodeResult";
 
 const idScanContainer = "reader";
-const width = window.innerWidth;
-const height = window.innerHeight;
-const aspectRatio = width / height;
-const reverseAspectRatio = height / width;
+// const width = window.innerWidth;
+// const height = window.innerHeight;
+// const aspectRatio = width / height;
+// const reverseAspectRatio = height / width;
 
-const mobileAspectRatio =
-  reverseAspectRatio > 1.5
-    ? reverseAspectRatio + (reverseAspectRatio * 12) / 100
-    : reverseAspectRatio;
+// const mobileAspectRatio =
+//   reverseAspectRatio > 1.5
+//     ? reverseAspectRatio + (reverseAspectRatio * 12) / 100
+//     : reverseAspectRatio;
 
 export default function ScanQrCode() {
   const navigate = useNavigate();
@@ -49,7 +49,8 @@ export default function ScanQrCode() {
           ],
           videoConstraints: {
             facingMode: "environment",
-            aspectRatio: width < 600 ? mobileAspectRatio : aspectRatio,
+            // aspectRatio: width < 600 ? mobileAspectRatio : aspectRatio,
+            aspectRatio: 4 / 3,
           },
         },
         false
