@@ -52,8 +52,12 @@ span:has(select){
   display: none !important;
 }
 
+#html5-qrcode-button-camera-start,
 #html5-qrcode-button-camera-stop{
-  background-color: rgb(180, 221, 29);
+  background-image: linear-gradient(to right, #5982da 0%, #e467d3  50%, #eb3fdc  100%);
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: rgb(37, 36, 36);
 }
 #qr-shaded-region{
   border-width: 40px 40px !important;
