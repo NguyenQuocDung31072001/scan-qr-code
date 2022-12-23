@@ -41,8 +41,8 @@ export default function ScanQrCode() {
       let html5QrcodeScanner = new Html5QrcodeScanner(
         "reader",
         {
-          fps: 10,
-          qrbox: 250,
+          fps: 20,
+          qrbox: { width: 250, height: 250 },
           supportedScanTypes: [
             Html5QrcodeScanType.SCAN_TYPE_CAMERA,
             Html5QrcodeScanType.SCAN_TYPE_FILE,
