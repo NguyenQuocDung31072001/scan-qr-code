@@ -43,7 +43,7 @@
 #reader img{
   display: none !important;
 } 
-#reader span:first-child(){
+#reader span:first-child(){ 
   display: none !important;
 }
 
@@ -53,7 +53,7 @@
 }
 
 #html5-qrcode-button-camera-stop{
-  background-color: rgb(61, 199, 61);
+  background-color: rgb(180, 221, 29);
 }
 #qr-shaded-region{
   border-width: 40px 40px !important;
