@@ -39,7 +39,7 @@ export default function ScanQrCode() {
             Html5QrcodeScanType.SCAN_TYPE_FILE,
           ],
           videoConstraints: {
-            facingMode: "environment",
+            // facingMode: { exact: "environment" },
             aspectRatio: 1,
           },
         },
