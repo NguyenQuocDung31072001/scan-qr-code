@@ -36,35 +36,34 @@ export default function ScanQrCode() {
   const { isShowing, toggle } = useModal();
   //useEffect
   React.useEffect(() => {
-    if (isShowing) return;
-    if (Html5QrcodeScanner) {
-      let html5QrcodeScanner = new Html5QrcodeScanner(
-        "reader",
-        {
-          fps: 20,
-          qrbox: { width: 250, height: 250 },
-          supportedScanTypes: [
-            Html5QrcodeScanType.SCAN_TYPE_CAMERA,
-            Html5QrcodeScanType.SCAN_TYPE_FILE,
-          ],
-          videoConstraints: {
-            facingMode: "environment",
-          },
-          // aspectRatio: width < 600 ? mobileAspectRatio : aspectRatio,
+    if (isShowing || !Html5QrcodeScanner) return;
+
+    let html5QrcodeScanner = new Html5QrcodeScanner(
+      "reader",
+      {
+        fps: 20,
+        qrbox: { width: 250, height: 250 },
+        supportedScanTypes: [
+          Html5QrcodeScanType.SCAN_TYPE_CAMERA,
+          Html5QrcodeScanType.SCAN_TYPE_FILE,
+        ],
+        videoConstraints: {
+          facingMode: "environment",
         },
-        false
-      );
-      html5QrcodeScanner.render(
-        (_data: any) => {
-          console.log("success ->", data);
-          html5QrcodeScanner.clear();
-          checkinUser(_data).then((result) => {
-            setData(result?.data);
-          });
-        },
-        (err: any) => console.log("err ->", err)
-      );
-    }
+        // aspectRatio: width < 600 ? mobileAspectRatio : aspectRatio,
+      },
+      false
+    );
+    html5QrcodeScanner.render(
+      (_data: any) => {
+        console.log("success ->", data);
+        html5QrcodeScanner.clear();
+        checkinUser(_data).then((result) => {
+          setData(result?.data);
+        });
+      },
+      (err: any) => console.log("err ->", err)
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Html5Qrcode, isShowing]);
 

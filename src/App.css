@@ -45,7 +45,9 @@
 #reader select{
   display: none !important;
 } */
-#reader img{
+#reader img,
+#reader span:has(.select),
+#reader select{
   display: none !important;
 }
 #reader video{
@@ -53,6 +55,9 @@
   height: 20rem !important;
 }
 
+#html5-qrcode-button-camera-stop{
+  background-color: rgb(229, 162, 162);
+}
 #qr-shaded-region{
   border-width: 40px 40px !important;
 }
