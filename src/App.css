@@ -36,14 +36,18 @@
     transform: rotate(360deg);
   }
 }
-/* #html5-qrcode-anchor-scan-type-change{
+ #html5-qrcode-anchor-scan-type-change{
   display: none !important;
 }
+/*
  #reader img,
 #reader span,
 #reader select{
   display: none !important;
 } */
+#reader img{
+  display: none !important;
+}
 #reader video{
   width: 20rem !important;
   height: 20rem !important;
