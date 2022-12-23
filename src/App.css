@@ -40,19 +40,25 @@
   display: none !important;
 }
 
-#reader img{
+/* #reader img{
   display: none !important;
-}
+} */
 #reader__dashboard_section_csr span:first-child(){
   display: none !important;
 }
+#reader img,
+#reader span,
+#reader select{
+  display: none !important;
+}
+
 #reader video{
   width: 20rem !important;
   height: 20rem !important;
 }
 
 #html5-qrcode-button-camera-stop{
-  background-color: rgb(97, 5, 5);
+  /* background-color: rgb(97, 5, 5); */
 }
 #qr-shaded-region{
   border-width: 40px 40px !important;
