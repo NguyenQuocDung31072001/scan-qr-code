@@ -43,13 +43,13 @@
 #reader img{
   display: none !important;
 } 
-#reader span:first-child(){ 
-  display: none !important;
-}
 
 #reader video{
   width: 20rem !important;
   height: 20rem !important;
+}
+span:has(select){
+  display: none !important;
 }
 
 #html5-qrcode-button-camera-stop{
