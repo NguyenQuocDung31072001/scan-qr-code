@@ -1,8 +1,5 @@
 import { Html5Qrcode, Html5QrcodeScanner } from "html5-qrcode";
-import {
-  Html5QrcodeScanType,
-  Html5QrcodeSupportedFormats,
-} from "html5-qrcode/esm/core";
+import { Html5QrcodeScanType } from "html5-qrcode/esm/core";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { checkinUser } from "../../api/user";
@@ -11,7 +8,6 @@ import useModal from "../../hook/useModal";
 import ScanQrCodeResult from "../scanQrCodeResult/ScanQrCodeResult";
 
 const idScanContainer = "reader";
-// const formatsToSupport = [Html5QrcodeSupportedFormats.QR_CODE];
 
 export default function ScanQrCode() {
   const navigate = useNavigate();
@@ -42,12 +38,10 @@ export default function ScanQrCode() {
             Html5QrcodeScanType.SCAN_TYPE_CAMERA,
             Html5QrcodeScanType.SCAN_TYPE_FILE,
           ],
-          // formatsToSupport: :exchange_scannerFormats,
           videoConstraints: {
             facingMode: "environment",
             aspectRatio: 1,
           },
-          // focusMode: "continuous",
         },
         false
       );
