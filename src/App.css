@@ -44,9 +44,7 @@
   display: none !important;
 } */
 
-#reader img,
-#reader span,
-#reader select{
+#reader img{
   display: none !important;
 } 
 
