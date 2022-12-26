@@ -8,15 +8,15 @@ import useModal from "../../hook/useModal";
 import ScanQrCodeResult from "../scanQrCodeResult/ScanQrCodeResult";
 
 const idScanContainer = "reader";
-const width = window.innerWidth;
-const height = window.innerHeight;
-const aspectRatio = width / height;
-const reverseAspectRatio = height / width;
+// const width = window.innerWidth;
+// const height = window.innerHeight;
+// const aspectRatio = width / height;
+// const reverseAspectRatio = height / width;
 
-const mobileAspectRatio =
-  reverseAspectRatio > 1.5
-    ? reverseAspectRatio + (reverseAspectRatio * 12) / 100
-    : reverseAspectRatio;
+// const mobileAspectRatio =
+//   reverseAspectRatio > 1.5
+//     ? reverseAspectRatio + (reverseAspectRatio * 12) / 100
+//     : reverseAspectRatio;
 
 export default function ScanQrCode() {
   const navigate = useNavigate();
@@ -80,7 +80,7 @@ export default function ScanQrCode() {
   return (
     <div className="w-[20rem] h-[20rem]">
       <div id={idScanContainer} className="w-[20rem] h-[20rem]"></div>
-      <ScanQrCodeResult isShowing={isShowing} toggle={toggle} data={data} />
+      <ScanQrCodeResult isShowing={true} toggle={toggle} data={data} />
     </div>
   );
 }

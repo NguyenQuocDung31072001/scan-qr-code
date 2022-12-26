@@ -27,10 +27,11 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
   const onSubmit = handleSubmit((data) => {
-    if (data) {
+    if (data?.Email === "admin@amanotes.com" && data?.Password === "amanotes") {
       setEmail(data.Email);
       setPassword(data.Password);
       navigate("/scan_qrcode");
+    } else {
     }
   });
   return (
