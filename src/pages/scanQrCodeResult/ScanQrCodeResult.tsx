@@ -20,6 +20,7 @@ const ScanQrCodeResult = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [result]);
+
   return isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
