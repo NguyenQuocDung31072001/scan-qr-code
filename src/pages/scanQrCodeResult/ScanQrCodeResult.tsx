@@ -13,7 +13,7 @@ const ScanQrCodeResult = ({
 }: IPropsResultScanQrCode) => {
   const renderMessageError = React.useMemo(() => {
     if (result.error) {
-      if (result.error.response.status === 400) {
+      if (result.error?.response?.status === 400) {
         return result.error?.response?.data;
       }
       return result.error?.response?.statusText;
