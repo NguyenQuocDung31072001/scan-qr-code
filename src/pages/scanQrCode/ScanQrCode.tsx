@@ -78,9 +78,9 @@ export default function ScanQrCode() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   return (
-    <div className="w-[20rem] h-[20rem]">
-      <div id={idScanContainer} className="w-[20rem] h-[20rem]"></div>
-      <ScanQrCodeResult isShowing={true} toggle={toggle} data={data} />
+    <div className="w-[18rem] h-[18rem]">
+      <div id={idScanContainer} className="w-[18rem] h-[18rem]"></div>
+      <ScanQrCodeResult isShowing={isShowing} toggle={toggle} data={data} />
     </div>
   );
 }
