@@ -18,9 +18,16 @@ const idScanContainer = "reader";
 //     ? reverseAspectRatio + (reverseAspectRatio * 12) / 100
 //     : reverseAspectRatio;
 
+export type TResult = {
+  data: any;
+  error: any;
+};
 export default function ScanQrCode() {
   const navigate = useNavigate();
-  const [data, setData] = React.useState<any>();
+  const [result, setResult] = React.useState<TResult>({
+    data: undefined,
+    error: undefined,
+  });
   const [email, setEmail] = useLocalStorage("email", "");
   const [password, setPassword] = useLocalStorage("password", "");
   React.useEffect(() => {
@@ -56,11 +63,22 @@ export default function ScanQrCode() {
     );
     html5QrcodeScanner.render(
       (_data: any) => {
-        console.log("success ->", data);
+        console.log("success ->", _data);
         html5QrcodeScanner.clear();
-        checkinUser(_data).then((result) => {
-          setData(result?.data);
-        });
+        checkinUser(_data)
+          .then((_result: any) => {
+            setResult({
+              error: undefined,
+              data: _result?.data,
+            });
+          })
+          .catch((err) => {
+            console.log({ err });
+            setResult({
+              error: err,
+              data: undefined,
+            });
+          });
       },
       (err: any) => console.log("err ->", err)
     );
@@ -69,18 +87,21 @@ export default function ScanQrCode() {
 
   React.useEffect(() => {
     if (isShowing) return;
-    setData(null);
+    setResult({
+      error: undefined,
+      data: undefined,
+    });
   }, [isShowing]);
 
   React.useEffect(() => {
-    if (!data) return;
+    if (!result.data && !result.error) return;
     toggle();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  }, [result]);
   return (
     <div className="w-[18rem] h-[18rem]">
       <div id={idScanContainer} className="w-[18rem] h-[18rem]"></div>
-      <ScanQrCodeResult isShowing={isShowing} toggle={toggle} data={data} />
+      <ScanQrCodeResult isShowing={isShowing} toggle={toggle} result={result} />
     </div>
   );
 }

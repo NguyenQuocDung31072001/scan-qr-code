@@ -1,16 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { TResult } from "../scanQrCode/ScanQrCode";
 interface IPropsResultScanQrCode {
   isShowing: boolean;
   toggle: () => void;
-  data: any;
+  result: TResult;
 }
 const ScanQrCodeResult = ({
   isShowing,
   toggle,
-  data,
+  result,
 }: IPropsResultScanQrCode) => {
-  console.log({ data });
+  const renderMessageError = React.useMemo(() => {
+    if (result.error) {
+      if (result.error.response.status === 400) {
+        return result.error?.response?.data;
+      }
+      return result.error?.response?.statusText;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [result]);
   return isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
@@ -25,16 +34,23 @@ const ScanQrCodeResult = ({
                   onClick={toggle}
                 ></i>
               </div>
-              <p className="text-red-500 text-[20px]">
-                {data?.name} was checkin!
-              </p>
-              <p className="text-gray-800 font-semibold">Info user :</p>
-              <p className="text-gray-500">Name: {data?.name}</p>
-              <p className="text-gray-500">Email: {data?.email}</p>
-              <p className="text-gray-500">Company id: {data?.company_id}</p>
-              <p className="text-gray-500">
-                Last check in: {data?.last_check_in}
-              </p>
+              {renderMessageError && <p>{renderMessageError}</p>}
+              {result.data && (
+                <div>
+                  <p className="text-red-500 text-[20px]">
+                    {result.data?.name} was checkin!
+                  </p>
+                  <p className="text-gray-800 font-semibold">Info user :</p>
+                  <p className="text-gray-500">Name: {result.data?.name}</p>
+                  <p className="text-gray-500">Email: {result.data?.email}</p>
+                  <p className="text-gray-500">
+                    Company id: {result.data?.company_id}
+                  </p>
+                  <p className="text-gray-500">
+                    Last check in: {result.data?.last_check_in}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </React.Fragment>,

@@ -5,8 +5,9 @@ export const checkinUser = async (id: string) => {
   try {
     const result = await axiosConfig.post(`/api/user/checkin/${id}`);
     console.log({ result });
-    return result;
+    return Promise.resolve(result);
   } catch (error) {
     console.log({ error });
+    return Promise.reject(error);
   }
 };
