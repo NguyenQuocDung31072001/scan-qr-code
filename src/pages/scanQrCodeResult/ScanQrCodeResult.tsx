@@ -10,6 +10,7 @@ const ScanQrCodeResult = ({
   toggle,
   data,
 }: IPropsResultScanQrCode) => {
+  console.log({ data });
   return isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
